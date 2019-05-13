@@ -9,12 +9,16 @@ import org.springframework.stereotype.Repository;
 import com.bridgelabz.fundonoteapp.model.User;
 
 @Repository
-public interface UserRepositry extends JpaRepository<User, Long> {
+public interface UserRepositry extends JpaRepository<User, Integer> {
 
-	public User save(User user);
+	List<User> findByIdAndPassword(int id, String password);
 
-	List<User> findByEmailAndPassword(String email, String password);
+	Optional<User> findAllById(int id);
 
+	Optional<User> findById(int id);
 
-	Optional<User> findByResetToken(String resetToken);
+	boolean deleteById(int varifiedUserId);
+
+	User getuserinfo();
+
 }

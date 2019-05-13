@@ -1,6 +1,5 @@
 package com.bridgelabz.fundonoteapp.model;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -8,38 +7,16 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "user")
 public class User {
+	
 	@Id
-	@Column(name = "id")
-	private long id;
-
-	@Column(name = "name")
+	private int id;
 	private String name;
-
-	@Column(name = "email")
 	private String email;
-
-	@Column(name = "password")
 	private String password;
-
-	@Column(name = "phonenumber")
 	private String phonenumber;
-
-	@Column(name = "activestatus")
 	private String status;
-
-	@Column(name = "image")
 	private String image;
-
-	@Column(name = "reset_token")
-	public String resetToken;
-
-	public String getResetToken() {
-		return resetToken;
-	}
-
-	public void setResetToken(String resetToken) {
-		resetToken = resetToken;
-	}
+	private String resetToken;
 
 	public User() {
 		super();
@@ -51,11 +28,15 @@ public class User {
 				+ phonenumber + ", status=" + status + ", image=" + image + "]";
 	}
 
-	public long getId() {
+
+
+
+
+	public int getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -83,6 +64,8 @@ public class User {
 		this.password = password;
 	}
 
+
+
 	public String getPhonenumber() {
 		return phonenumber;
 	}
@@ -105,5 +88,13 @@ public class User {
 
 	public void setImage(String image) {
 		this.image = image;
+	}
+
+	public String getResetToken() {
+		return resetToken;
+	}
+
+	public void setResetToken(String resetToken) {
+		this.resetToken = resetToken;
 	}
 }
