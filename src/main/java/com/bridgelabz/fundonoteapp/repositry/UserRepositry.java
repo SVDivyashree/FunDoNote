@@ -19,6 +19,10 @@ public interface UserRepositry extends JpaRepository<User, Integer> {
 
 	boolean deleteById(int varifiedUserId);
 
-	User getuserinfo();
+	User findByEmail(String email);
+
+	
+
+	List<User> findByEmailAndPassword(String email, String password);
 
 }
