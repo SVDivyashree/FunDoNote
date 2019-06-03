@@ -38,13 +38,13 @@ public class LoginController {
 	private JavaMailSender mailSender;
 
 	@PostMapping("/login")
-	public ResponseEntity<String> login(@RequestBody User user, HttpServletRequest request,
+	public ResponseEntity<?> login(@RequestBody User user, HttpServletRequest request,
 			HttpServletResponse response) {
 		String token = userService.login(user);
 //		response.setHeader("token", token);
 		if (token != null) {
 			response.setHeader("token", token);
-			return new ResponseEntity<>(token, HttpStatus.OK);
+			return new ResponseEntity<Void>( HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>("{invalid user}", HttpStatus.BAD_REQUEST);
 		}

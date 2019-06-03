@@ -13,6 +13,7 @@ import com.bridgelabz.fundonoteapp.model.User;
 import com.bridgelabz.fundonoteapp.service.UserService;
 
 @RestController
+@RequestMapping("/")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class RegistrationController {
     
