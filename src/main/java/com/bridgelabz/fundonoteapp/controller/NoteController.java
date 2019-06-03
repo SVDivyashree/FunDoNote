@@ -28,7 +28,7 @@ public class NoteController {
 	private NoteService noteService;
 
 	// Create
-	@PostMapping(value="/note")
+	@PostMapping(value="/createnote")
 	public Note createNote(@RequestBody Note note, HttpServletRequest request) {
 
 		return noteService.createNote(request.getHeader("token"), note);
@@ -37,7 +37,7 @@ public class NoteController {
 	// update
 	
 
-	@PutMapping(value="/note")
+	@PutMapping(value="/updatenote")
 	public Note updateNote(@RequestBody Note note, HttpServletRequest request) {
 
 		return noteService.updateNote(request.getHeader("token"), note);
@@ -45,7 +45,7 @@ public class NoteController {
 
 	// delete
 
-	@DeleteMapping(value="/note")
+	@DeleteMapping(value="/deletenote")
 	public void deleteNote(@RequestBody Note note,HttpServletRequest request) {
 		System.out.println( request.getHeader("token"));
 		boolean deleteNote = noteService.deleteNote(request.getHeader("token"),note);
@@ -54,7 +54,7 @@ public class NoteController {
 	
 	//fetch
 	
-	@GetMapping(value="/note")
+	@GetMapping(value="/retrievenote")
 	public List<Note> fetchNote(HttpServletRequest request) {
 		System.out.println(request.getHeader("token"));
 		return noteService.fetchNote(request.getHeader("token"));
